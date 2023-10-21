@@ -7,32 +7,26 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import Hidden from '@mui/material/Hidden';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
 import { Drawer } from "@mui/material";
 import ListMenu from './ListMenu';
-import {menuList} from "../../utils/MenuList"
+import { menuList } from "../../utils/MenuList"
+import Link from "next/link";
+import Grid from '@mui/material/Grid';
 
 export default function NavBar() {
 
   //--------------------Variable--------------------
-  const [value, setValue] = React.useState("0");
   const [drawerState, setDrawerState] = React.useState(false);
 
 
   //--------------------Function--------------------
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-  };
 
   const drawerHandleClick = () => {
     setDrawerState(!drawerState);
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} className='mb-10'>
       {/* ------------APP BAR MOBILE------------------ */}
       <AppBar position="static" sx={{ display: { xl: 'none', lg: 'none', md: 'none' } }} >
         <Toolbar>
@@ -58,12 +52,19 @@ export default function NavBar() {
 
       {/* ------------APP BAR DESKTOP------------------ */}
       <AppBar position="static" sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}>
-        <Toolbar>
-          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-            <Tab label="Item One" value="0" />
-            <Tab label="Item Two" value="1" />
-            <Tab label="Item Three" value="2" />
-          </Tabs>
+        <Toolbar className="p-0">
+          <div className='grid grid-cols-3 gap-2 w-full '>
+          <div className='flex items-center justify-center overflow-x-hidden'>
+            {menuList.map((item, index) => (
+              <Link href={item.path} key={index} className="pr-1 pl-1">
+                <Button color='inherit' className='font-bold'>{item.title}</Button>
+              </Link>
+            ))}
+          </div>
+          <Typography variant="h4" component="div" sx={{ flexGrow: 2 }} >
+            <p className="flex items-center justify-center">Merik Tattos</p>
+          </Typography>
+          </div>
         </Toolbar>
       </AppBar>
     </Box>
