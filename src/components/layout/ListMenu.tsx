@@ -7,11 +7,13 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import Link from "next/link";
-import {menuList} from "../../utils/MenuList"
+import { MenuListType } from "@/utils/type";
+
 
 
 interface ChildComponentProps {
   drawerHandleClick: () => void;
+  menuList: MenuListType[];
 }
 
 export default function ListMenu(props: ChildComponentProps) {
@@ -22,7 +24,7 @@ export default function ListMenu(props: ChildComponentProps) {
       onClick={props.drawerHandleClick}
     >
       <List>
-        {menuList.map((item, index) => (
+        {props.menuList.map((item, index) => (
           <Link href={item.path} key={index}>
             <ListItem disablePadding>
               <ListItemButton>

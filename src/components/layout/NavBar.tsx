@@ -12,6 +12,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { Drawer } from "@mui/material";
 import ListMenu from './ListMenu';
+import {menuList} from "../../utils/MenuList"
 
 export default function NavBar() {
 
@@ -46,10 +47,10 @@ export default function NavBar() {
             <MenuIcon />
           </IconButton>
           <Drawer anchor="left" open={drawerState} onClose={drawerHandleClick}>
-            <ListMenu drawerHandleClick={drawerHandleClick} />
+            <ListMenu drawerHandleClick={drawerHandleClick} menuList={menuList} />
           </Drawer>
           <Typography variant="h6" component="div" sx={{ flexGrow: 2 }}>
-            <p className="flex items-center justify-center">News</p>
+            <p className="flex items-center justify-center">Merik Tattos</p>
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
