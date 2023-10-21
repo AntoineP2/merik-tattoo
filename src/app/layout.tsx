@@ -1,10 +1,10 @@
-"use client";
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import CssBaseline from "@mui/material/CssBaseline";
-import NavBar from "../components/navBar";
+import NavBar from '@/components/layout/NavBar';
+import { darkTheme } from '@/utils/Themes';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,12 +13,6 @@ export const meta: Metadata = {
   description: 'Next.js + MUI',
   viewport: 'width=device-width, initial-scale=1.0',
 }
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
 
 export default function RootLayout({
   children,
