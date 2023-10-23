@@ -9,9 +9,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Drawer } from "@mui/material";
 import ListMenu from './ListMenu';
-import { menuList } from "../../utils/MenuList"
+import { menuList } from "../../utils/list/MenuList"
 import Link from "next/link";
-import Grid from '@mui/material/Grid';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 export default function NavBar() {
 
@@ -46,7 +46,11 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 2 }}>
             <p className="flex items-center justify-center">Merik Tattos</p>
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Link href="https://www.instagram.com/merikos.mi.corazon/">
+            <Button color="inherit">
+              <InstagramIcon fontSize='large' />
+            </Button>
+          </Link>
         </Toolbar>
       </AppBar>
 
@@ -54,17 +58,25 @@ export default function NavBar() {
       <AppBar position="static" sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}>
         <Toolbar className="p-0">
           <div className='grid grid-cols-3 gap-2 w-full '>
-          <div className='flex items-center justify-center overflow-x-hidden'>
-            {menuList.map((item, index) => (
-              <Link href={item.path} key={index} className="pr-1 pl-1">
-                <Button color='inherit' className='font-bold'>{item.title}</Button>
-              </Link>
-            ))}
+            <div className='flex items-center justify-center overflow-x-hidden'>
+              {menuList.map((item, index) => (
+                <Link href={item.path} key={index} className="pr-1 pl-1">
+                  <Button color='inherit' className='font-bold text-xs hover:-translate-y-1 transition duration-300 ease-in-out' >{item.title}</Button>
+                </Link>
+              ))}
+            </div>
+            <Typography variant="h4" component="div" sx={{ flexGrow: 2 }} >
+              <p className="flex items-center justify-center">Merik Tattos</p>
+            </Typography>
+            <div className='flex items-center justify-end pr-[10%]'>
+            <Link href="https://www.instagram.com/merikos.mi.corazon/">
+              <Button color="inherit">
+                <InstagramIcon fontSize='large' />
+              </Button>
+            </Link>
           </div>
-          <Typography variant="h4" component="div" sx={{ flexGrow: 2 }} >
-            <p className="flex items-center justify-center">Merik Tattos</p>
-          </Typography>
           </div>
+
         </Toolbar>
       </AppBar>
     </Box>

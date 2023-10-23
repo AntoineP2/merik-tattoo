@@ -7,7 +7,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 import Link from "next/link";
-import { MenuListType } from "@/utils/type";
+import { MenuListType } from "@/utils/types/type";
 
 
 
