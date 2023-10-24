@@ -7,11 +7,11 @@ interface ChildComponentProps {
 
 export default function FooterComponent(props: ChildComponentProps) {
   return (
-    <div>
+    <div className='flex items-center mb-5'>
       {props.FooterList.icon}
-      <div className='inline'>
-        <p>{props.FooterList.title}</p>
-        <p>{props.FooterList.text}</p>
+      <div className='inline-block ml-3'>
+        <p className='font-bold'>{props.FooterList.title}</p>
+        <p className='font-light text-sm'>{props.FooterList.text}</p>
       </div>
     </div>
   )
