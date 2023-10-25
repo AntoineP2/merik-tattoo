@@ -1,5 +1,5 @@
 import React from 'react'
-import FooterComponent from '../../FooterComponent'
+import FooterComponent from './FooterComponent'
 import { FooterListType } from '@/utils/types/type'
 
 interface ChildComponentProps {
