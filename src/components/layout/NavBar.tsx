@@ -44,7 +44,9 @@ export default function NavBar() {
             <ListMenu drawerHandleClick={drawerHandleClick} menuList={menuList} />
           </Drawer>
           <Typography variant="h6" component="div" sx={{ flexGrow: 2 }}>
-            <p className="flex items-center justify-center">Merik Tattos</p>
+            <Link href="/">
+              <p className="flex items-center justify-center">Merik Tattos</p>
+            </Link>
           </Typography>
           <Link href="https://www.instagram.com/merikos.mi.corazon/">
             <Button color="inherit">
@@ -66,15 +68,17 @@ export default function NavBar() {
               ))}
             </div>
             <Typography variant="h4" component="div" sx={{ flexGrow: 2 }} >
-              <p className="flex items-center justify-center">Merik Tattos</p>
+              <Link href="/">
+                <p className="flex items-center justify-center">Merik Tattos</p>
+              </Link>
             </Typography>
             <div className='flex items-center justify-end pr-[10%]'>
-            <Link href="https://www.instagram.com/merikos.mi.corazon/">
-              <Button color="inherit">
-                <InstagramIcon fontSize='large' />
-              </Button>
-            </Link>
-          </div>
+              <Link href="https://www.instagram.com/merikos.mi.corazon/">
+                <Button color="inherit">
+                  <InstagramIcon fontSize='large' />
+                </Button>
+              </Link>
+            </div>
           </div>
 
         </Toolbar>
