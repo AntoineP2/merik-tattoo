@@ -9,3 +9,12 @@ export type FooterListType = {
     icon: JSX.Element;
     text: string;
 }
+
+export type tattooImageType = {
+    id: number,
+    Picture: pictureType[],
+  }
+  
+export type pictureType = {
+    url: string,
+  }
