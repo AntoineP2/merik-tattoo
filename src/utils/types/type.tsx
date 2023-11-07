@@ -10,6 +10,13 @@ export type FooterListType = {
     text: string;
 }
 
+export type FlashThemeListType = {
+  title: string;
+  url: string;  
+  alt: string;
+  id: number;
+}
+
 export type tattooImageType = {
     id: number,
     Picture: pictureType[],

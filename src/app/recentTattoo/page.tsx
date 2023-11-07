@@ -2,6 +2,7 @@
 import TattooImageComponent from '@/components/tattoo/TattooImageComponent'
 import React from 'react'
 import axios from "axios";
+import TattooImageSkeleton from '@/components/skeleton/tattooImageSkeleton';
 
 
 export default function page() {
@@ -33,7 +34,9 @@ export default function page() {
 
   return (
     <div>
-      {tattooImagesLoading && <div>Chargement...</div>}
+      <div className="flex items-center justify-center mb-7"><h1 className='font-bold text-xl'>TATTOO RECENT</h1></div>
+      
+      {tattooImagesLoading && <TattooImageSkeleton />}
       {!tattooImagesLoading && <TattooImageComponent tattooImages={tattooImages} />}
     </div>
   )
