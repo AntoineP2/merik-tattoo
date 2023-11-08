@@ -25,3 +25,9 @@ export type tattooImageType = {
 export type pictureType = {
     url: string,
   }
+
+export type FlashThemeType = {
+  id: number,
+  name: string,
+  image: string,
+}

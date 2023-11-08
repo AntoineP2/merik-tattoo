@@ -1,10 +1,11 @@
 "use client"
 import React from 'react'
 import Image from 'next/image'
-import { FlashThemeListType } from '../../utils/types/type';
+import Link from 'next/link';
+import { FlashThemeType } from '../../utils/types/type';
 
 interface ChildComponentProps {
-    themeInfo: FlashThemeListType
+    themeInfo: FlashThemeType
 }
 
 export default function TattooThemeComponent(props: ChildComponentProps) {
@@ -23,16 +24,18 @@ export default function TattooThemeComponent(props: ChildComponentProps) {
     }
     return (
         <div className='flex items-center justify-center'>
+            <Link href={"/flash/" + props.themeInfo.id}>
             <Image
-                src={props.themeInfo.url}
-                alt={props.themeInfo.alt}
+                src={props.themeInfo.image}
+                alt={props.themeInfo.name}
                 width={500}
                 height={300}
                 className='brightness-50 transition ease-in-out duration-300 hover:brightness-100 hover:scale-105 rounded-lg shadow-md shadow-black'
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             />
-            {displayTitle && <p className='absolute font-bold text-2xl'>{props.themeInfo.title}</p>}
+            </Link>
+            {displayTitle && <p className='absolute font-bold text-2xl'>{props.themeInfo.name}</p>}
         </div>
     )
 }

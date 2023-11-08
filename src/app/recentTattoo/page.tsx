@@ -32,12 +32,16 @@ export default function page() {
 
   }, [])
 
+  //<TattooImageComponent tattooImages={tattooImages} />
   return (
     <div>
       <div className="flex items-center justify-center mb-7"><h1 className='font-bold text-xl'>TATTOO RECENT</h1></div>
       
       {tattooImagesLoading && <TattooImageSkeleton />}
-      {!tattooImagesLoading && <TattooImageComponent tattooImages={tattooImages} />}
+      <div className="flex flex-col md:flex-row gap-5 items-center justify-center md:flex-wrap ">
+      {!tattooImagesLoading && (tattooImages.map((tattooImage, index) => (<TattooImageComponent tattooImage={tattooImage} key={index} />)))}
+      </div>
+      
     </div>
   )
 }
