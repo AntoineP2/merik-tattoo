@@ -17,6 +17,7 @@ export default function page() {
 
       const response = await axios.get("http://localhost:3005/api/v1/picture/getThemeImage");
       setFlashThemeList(response.data);
+      setFlashThemeListLoading(false);
     }
     catch (error) {
       console.log(error)
@@ -28,7 +29,6 @@ export default function page() {
   React.useEffect(() => {
     setFlashThemeListLoading(true);
     fetchThemeImages();
-    setFlashThemeListLoading(false);
   }, [])
 
 

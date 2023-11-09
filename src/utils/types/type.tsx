@@ -21,6 +21,16 @@ export type tattooImageType = {
     id: number,
     Picture: pictureType[],
   }
+
+export type tattooImageFlashType = {
+  id: number,
+  url: string,
+}
+
+export type tattooFlashType = {
+    name: string,
+    Picture : tattooImageFlashType[],
+}
   
 export type pictureType = {
     url: string,

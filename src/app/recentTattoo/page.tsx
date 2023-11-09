@@ -17,6 +17,7 @@ export default function page() {
       
       const response = await axios.get("http://localhost:3005/api/v1/picture/getAllPicture");
       setTattooImages(response.data);  
+      setTattooImagesLoading(false);
     }
     catch(error){
       console.log(error)
@@ -28,7 +29,7 @@ export default function page() {
 
     setTattooImagesLoading(true);
     fetchTattooImages();
-    setTattooImagesLoading(false);
+    
 
   }, [])
 
