@@ -69,7 +69,7 @@ export default function NavBar() {
             </div>
             <Typography variant="h4" component="div" sx={{ flexGrow: 2 }} >
               <Link href="/">
-                <p className="flex items-center justify-center">Merik Tattos</p>
+                <p className="flex items-center justify-center">Merikos Tattoo</p>
               </Link>
             </Typography>
             <div className='flex items-center justify-end pr-[10%]'>
