@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import {useState, useEffect} from 'react'
 import TattooImageFlashComponent from '@/components/tattoo/TattooImageFlashComponent'
 import axios from 'axios';
 import TattooImageSkeleton from '@/components/skeleton/tattooImageSkeleton';
@@ -7,14 +7,14 @@ import { tattooFlashType } from '@/utils/types/type';
 
 //<div>My Post: {params.theme}</div>
 
-export default function page({ params }: { params: { theme: string } }) {
+export default function Page({ params }: { params: { theme: string } }) {
   // ------- VARIABLES -------
-  const [tattooFlash, setTattooFlash] = React.useState<tattooFlashType[]>([{ // On initialise le state avec un tableau vide de type tattooFlashType
+  const [tattooFlash, setTattooFlash] = useState<tattooFlashType[]>([{ // On initialise le state avec un tableau vide de type tattooFlashType
     name: "",
     Picture: []
   }]);
-  const [tattooFlashLoading, setTattooFlashLoading] = React.useState(true);
-  const [title, setTitle] = React.useState("");
+  const [tattooFlashLoading, setTattooFlashLoading] = useState(true);
+  const [title, setTitle] = useState("");
 
   // ------- FUNCTIONS -------
 
@@ -33,7 +33,7 @@ export default function page({ params }: { params: { theme: string } }) {
   }
 
   // ------- EFFECTS -------
-  React.useEffect(() => {
+  useEffect(() => {
     setTattooFlashLoading(true);
     fetchTattooFlash();
 

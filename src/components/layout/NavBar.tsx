@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,18 +12,53 @@ import ListMenu from './ListMenu';
 import { menuList } from "../../utils/list/MenuList"
 import Link from "next/link";
 import InstagramIcon from '@mui/icons-material/Instagram';
+import Cookies from 'js-cookie';
+import { decodeToken } from '@/utils/decodeToken';
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
+import { useDispatch, useSelector } from 'react-redux';
+import { login, logout } from '@/tools/store/auth.slice';
+
 
 export default function NavBar() {
 
   //--------------------Variable--------------------
-  const [drawerState, setDrawerState] = React.useState(false);
-
+  const dispatch = useDispatch()
+  const { isLogin } = useSelector((state: any) => state.auth)
+  const [drawerState, setDrawerState] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   //--------------------Function--------------------
 
   const drawerHandleClick = () => {
     setDrawerState(!drawerState);
   };
+
+  const handleLogout = () => {
+    Cookies.remove("token")
+    dispatch(logout())
+    setIsAdmin(false)
+  }
+
+  const verifyToken = async () => { // ON VERIFIE SI C'EST UTILE DE FAIRE CETTE FONCTION
+    const token = Cookies.get("token")
+    if (token) {
+      const tokenDecoded: any = await decodeToken(token)
+      if (tokenDecoded) {
+        dispatch(login())
+        if (tokenDecoded.userInfo.userRole === "admin") {
+          setIsAdmin(true)
+        }
+      }
+    } else {
+      dispatch(logout())
+      setIsAdmin(false)
+    }
+  }
+
+  useEffect(() => {
+    verifyToken()
+  }, [])
 
   return (
     <Box sx={{ flexGrow: 1 }} className='mb-10'>
@@ -73,11 +108,23 @@ export default function NavBar() {
               </Link>
             </Typography>
             <div className='flex items-center justify-end pr-[10%]'>
-              <Link href="https://www.instagram.com/merikos.mi.corazon/">
+            <Link href="https://www.instagram.com/merikos.mi.corazon/">
+                  <Button color="inherit">
+                    <InstagramIcon fontSize='large' />
+                  </Button>
+                </Link>
+              {!isLogin &&
+                <Link href="/login">
                 <Button color="inherit">
-                  <InstagramIcon fontSize='large' />
+                  <LoginIcon fontSize='large' />
                 </Button>
               </Link>
+                }
+              {isLogin && 
+              <Button color="inherit" onClick={handleLogout}>
+              <LogoutIcon fontSize='large' />
+            </Button>
+              }
             </div>
           </div>
 

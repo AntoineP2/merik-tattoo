@@ -6,6 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import NavBar from '@/components/layout/NavBar';
 import Footer from '@/components/layout/Footer';
 import { darkTheme } from '@/utils/Themes';
+import AuthProvider from './authProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,12 +24,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider theme={darkTheme}>
-        <CssBaseline />
-        <body className={inter.className}>
-          <NavBar />
-          <div className="md:mr-[5%] md:ml-[5%] mb-[10%]">{children}</div>
-          <Footer />
-        </body>
+        <AuthProvider>
+          <CssBaseline />
+          <body className={inter.className}>
+
+            <NavBar />
+            <div className="md:mr-[5%] md:ml-[5%] mb-[10%]">{children}</div>
+            <Footer />
+
+          </body>
+        </AuthProvider>
       </ThemeProvider>
     </html>
   )

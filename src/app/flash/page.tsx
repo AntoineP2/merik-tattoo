@@ -1,15 +1,15 @@
 "use client"
-import React from 'react'
+import {useState, useEffect} from 'react'
 import TattooThemeComponent from '@/components/tattoo/TattooThemeComponent'
 import TattooImageSkeleton from '@/components/skeleton/tattooImageSkeleton';
 import axios from "axios";
 
 
 //naruto-flash-theme
-export default function page() {
+export default function Page() {
   // --------- VARIABLE --------
-  const [flashThemeList, setFlashThemeList] = React.useState([]);
-  const [flashThemeListLoading, setFlashThemeListLoading] = React.useState(true);
+  const [flashThemeList, setFlashThemeList] = useState([]);
+  const [flashThemeListLoading, setFlashThemeListLoading] = useState(true);
 
   // --------- Function --------
   const fetchThemeImages = async () => {
@@ -26,7 +26,7 @@ export default function page() {
 
   // --------- EFFECTS --------
 
-  React.useEffect(() => {
+  useEffect(() => {
     setFlashThemeListLoading(true);
     fetchThemeImages();
   }, [])

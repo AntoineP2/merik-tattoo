@@ -1,15 +1,15 @@
 "use client"
 import TattooImageComponent from '@/components/tattoo/TattooImageComponent'
-import React from 'react'
+import {useState, useEffect} from 'react'
 import axios from "axios";
 import TattooImageSkeleton from '@/components/skeleton/tattooImageSkeleton';
 
 
-export default function page() {
+export default function Page() {
   // ------- VARIABLES -------
 
-  const [tattooImages, setTattooImages] = React.useState([]);
-  const [tattooImagesLoading, setTattooImagesLoading] = React.useState(true);
+  const [tattooImages, setTattooImages] = useState([]);
+  const [tattooImagesLoading, setTattooImagesLoading] = useState(true);
 
   // ------- FUNCTIONS -------
   const fetchTattooImages = async () => {
@@ -25,7 +25,7 @@ export default function page() {
   };
   // ------- EFFECTS -------
 
-  React.useEffect( () => {
+  useEffect( () => {
 
     setTattooImagesLoading(true);
     fetchTattooImages();
