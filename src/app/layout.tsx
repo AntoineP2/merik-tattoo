@@ -7,6 +7,7 @@ import NavBar from '@/components/layout/NavBar';
 import Footer from '@/components/layout/Footer';
 import { darkTheme } from '@/utils/Themes';
 import AuthProvider from './authProvider';
+import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,8 +28,8 @@ export default function RootLayout({
         <AuthProvider>
           <CssBaseline />
           <body className={inter.className}>
-
             <NavBar />
+            <Toaster richColors />
             <div className="md:mr-[5%] md:ml-[5%] mb-[10%]">{children}</div>
             <Footer />
 

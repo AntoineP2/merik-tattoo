@@ -18,6 +18,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '@/tools/store/auth.slice';
+import { toast } from 'sonner'
+import { useRouter } from 'next/navigation'
 
 
 export default function NavBar() {
@@ -27,6 +29,7 @@ export default function NavBar() {
   const { isLogin } = useSelector((state: any) => state.auth)
   const [drawerState, setDrawerState] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const router = useRouter()
 
   //--------------------Function--------------------
 
@@ -37,7 +40,9 @@ export default function NavBar() {
   const handleLogout = () => {
     Cookies.remove("token")
     dispatch(logout())
+    toast.success("Vous êtes déconnecté, à plus tard Marvin !")
     setIsAdmin(false)
+    router.push("/")
   }
 
   const verifyToken = async () => { // ON VERIFIE SI C'EST UTILE DE FAIRE CETTE FONCTION
@@ -83,11 +88,18 @@ export default function NavBar() {
               <p className="flex items-center justify-center">Merik Tattos</p>
             </Link>
           </Typography>
-          <Link href="https://www.instagram.com/merikos.mi.corazon/">
-            <Button color="inherit">
-              <InstagramIcon fontSize='large' />
+          {!isLogin &&
+                <Link href="/login">
+                <Button color="inherit">
+                  <LoginIcon fontSize='large' />
+                </Button>
+              </Link>
+                }
+              {isLogin && 
+              <Button color="inherit" onClick={handleLogout}>
+              <LogoutIcon fontSize='large' />
             </Button>
-          </Link>
+              }
         </Toolbar>
       </AppBar>
 
