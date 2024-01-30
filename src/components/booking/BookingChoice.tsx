@@ -6,12 +6,12 @@ const BookingChoice = () => {
     const router = useRouter()
 
     const handleFlash = () => {
-        toast.info("Tu as choisis un flash, remplis le formulaire pour réserver !")
         router.push("/booking/flash")
+        toast.info("Tu as choisis un flash, remplis le formulaire pour réserver !")
     }
     const handleRegular = () => {
-        toast.info("Tu as choisis un tatouage perso, remplis le formulaire pour réserver et avoir un rendez vous avec Merikos !")
         router.push("/booking/regular")
+        toast.info("Tu as choisis un tatouage perso, remplis le formulaire pour réserver et avoir un rendez vous avec Merikos !")
     }
     
   return (

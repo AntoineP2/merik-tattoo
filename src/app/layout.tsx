@@ -6,7 +6,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import NavBar from '@/components/layout/NavBar';
 import Footer from '@/components/layout/Footer';
 import { darkTheme } from '@/utils/Themes';
-import AuthProvider from './authProvider';
 import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -25,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ThemeProvider theme={darkTheme}>
-        <AuthProvider>
           <CssBaseline />
           <body className={inter.className}>
             <NavBar />
@@ -34,7 +32,6 @@ export default function RootLayout({
             <Footer />
 
           </body>
-        </AuthProvider>
       </ThemeProvider>
     </html>
   )

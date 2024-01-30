@@ -12,43 +12,8 @@ export const menuList: MenuListType[] = [
 
     },
     {
-        title: 'Tattoo Recent',
-        icon: <LocalFireDepartmentIcon />,
-        path: '/recentTattoo'
-    },
-    {
-        title: 'Flash Disponibles',
-        icon: <FlashOnIcon />,
-        path: '/flash'
-    }, 
-    {
         title: 'Reservation',
         icon: <CalendarMonthIcon />,
         path: '/booking',
     },
 ]
-
-export const menuListAdmin: MenuListType[] = [
-    {
-        title: 'Merik',
-        icon: <SelfImprovementIcon />,
-        path: '/merik',
-
-    },
-    {
-        title: 'Tattoo Recent',
-        icon: <LocalFireDepartmentIcon />,
-        path: '/recentTattoo'
-    },
-    {
-        title: 'Flash Disponibles',
-        icon: <FlashOnIcon />,
-        path: '/flash'
-    }, 
-    {
-        title: 'Reservation',
-        icon: <CalendarMonthIcon />,
-        path: '/booking',
-    },
-]
-

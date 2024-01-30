@@ -1,5 +1,5 @@
+
 import FormRegular from '@/components/booking/FormRegular'
-import React from 'react'
 
 const page = () => {
     return (

@@ -4,40 +4,19 @@ export type MenuListType = {
     path: string;
 }
 
+export type ContactListType = {
+  title: string;
+  icon: JSX.Element;
+  path: string;
+  text: string;
+}
+
 export type FooterListType = {
     title: string;
     icon: JSX.Element;
     text: string;
 }
-
-export type FlashThemeListType = {
-  title: string;
-  url: string;  
-  alt: string;
-  id: number;
-}
-
-export type tattooImageType = {
-    id: number,
-    Picture: pictureType[],
-  }
-
-export type tattooImageFlashType = {
-  id: number,
-  url: string,
-}
-
-export type tattooFlashType = {
-    name: string,
-    Picture : tattooImageFlashType[],
-}
   
 export type pictureType = {
     url: string,
   }
-
-export type FlashThemeType = {
-  id: number,
-  name: string,
-  image: string,
-}

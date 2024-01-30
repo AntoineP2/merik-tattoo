@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,24 +12,15 @@ import ListMenu from './ListMenu';
 import { menuList } from "../../utils/list/MenuList"
 import Link from "next/link";
 import InstagramIcon from '@mui/icons-material/Instagram';
-import Cookies from 'js-cookie';
-import { decodeToken } from '@/utils/decodeToken';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
-import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '@/tools/store/auth.slice';
-import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
 
 
 export default function NavBar() {
 
   //--------------------Variable--------------------
-  const dispatch = useDispatch()
-  const { isLogin } = useSelector((state: any) => state.auth)
   const [drawerState, setDrawerState] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const router = useRouter()
 
   //--------------------Function--------------------
 
@@ -37,33 +28,10 @@ export default function NavBar() {
     setDrawerState(!drawerState);
   };
 
-  const handleLogout = () => {
-    Cookies.remove("token")
-    dispatch(logout())
-    toast.success("Vous êtes déconnecté, à plus tard Marvin !")
-    setIsAdmin(false)
-    router.push("/")
-  }
 
-  const verifyToken = async () => { // ON VERIFIE SI C'EST UTILE DE FAIRE CETTE FONCTION
-    const token = Cookies.get("token")
-    if (token) {
-      const tokenDecoded: any = await decodeToken(token)
-      if (tokenDecoded) {
-        dispatch(login())
-        if (tokenDecoded.userInfo.userRole === "admin") {
-          setIsAdmin(true)
-        }
-      }
-    } else {
-      dispatch(logout())
-      setIsAdmin(false)
-    }
-  }
+  
 
-  useEffect(() => {
-    verifyToken()
-  }, [])
+
 
   return (
     <Box sx={{ flexGrow: 1 }} className='mb-10'>
@@ -88,18 +56,6 @@ export default function NavBar() {
               <p className="flex items-center justify-center">Merik Tattos</p>
             </Link>
           </Typography>
-          {!isLogin &&
-                <Link href="/login">
-                <Button color="inherit">
-                  <LoginIcon fontSize='large' />
-                </Button>
-              </Link>
-                }
-              {isLogin && 
-              <Button color="inherit" onClick={handleLogout}>
-              <LogoutIcon fontSize='large' />
-            </Button>
-              }
         </Toolbar>
       </AppBar>
 
@@ -125,18 +81,6 @@ export default function NavBar() {
                     <InstagramIcon fontSize='large' />
                   </Button>
                 </Link>
-              {!isLogin &&
-                <Link href="/login">
-                <Button color="inherit">
-                  <LoginIcon fontSize='large' />
-                </Button>
-              </Link>
-                }
-              {isLogin && 
-              <Button color="inherit" onClick={handleLogout}>
-              <LogoutIcon fontSize='large' />
-            </Button>
-              }
             </div>
           </div>
 

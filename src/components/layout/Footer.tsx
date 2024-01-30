@@ -1,21 +1,15 @@
 import React from 'react'
 import Divider from '@mui/material/Divider';
 import { Box } from '@mui/material';
-import { footerList } from '@/utils/list/FooterList';
-import { reseauList } from '@/utils/list/ReseauList';
-
-import FooterTop from './footerComponents/FooterTop';
-
+import { ContactList } from '@/utils/list/ContactList';
 import FooterBottom from './footerComponents/FooterBottom';
 
 
 export default function Footer() {
     return (
-        <Box sx={{ flexGrow: 1 }} className='mt-10 '>
-            <Divider className='mb-10' />
-            <FooterTop FooterList={footerList} />
+        <Box sx={{ flexGrow: 1 }} className='mt-10 bg-neutral-900'>
             <Divider />
-            <FooterBottom reseauList={reseauList} />
+            <FooterBottom />
         </Box>
     )
 }
