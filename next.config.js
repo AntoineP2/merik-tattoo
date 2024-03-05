@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     domains: ["i.postimg.cc"],
   },
-  distDir: "build",
+  distDir: "docs",
   output: "export",
 };
 
