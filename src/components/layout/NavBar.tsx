@@ -28,11 +28,6 @@ export default function NavBar() {
     setDrawerState(!drawerState);
   };
 
-
-  
-
-
-
   return (
     <Box sx={{ flexGrow: 1 }} className='mb-10'>
       {/* ------------APP BAR MOBILE------------------ */}

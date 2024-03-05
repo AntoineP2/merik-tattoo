@@ -26,10 +26,14 @@ export default function RootLayout({
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <body className={inter.className}>
-          <NavBar />
+          <div className="flex flex-col h-screen">
+            <NavBar />
+            <div className="md:mr-[5%] md:ml-[5%] mb-[10%]">{children}</div>
+            <div className="justify-self-end">
+              <Footer />
+            </div>
+          </div>
           <Toaster richColors />
-          <div className="md:mr-[5%] md:ml-[5%] mb-[10%]">{children}</div>
-          <Footer />
         </body>
       </ThemeProvider>
     </html>
