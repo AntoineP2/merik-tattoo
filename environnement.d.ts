@@ -1,7 +1,5 @@
 declare namespace NodeJS {
-    export interface ProcessEnv {
-        readonly NEXT_PUBLIC_KEY_JWT: string
-        readonly NEXT_PUBLIC_KEY_PASSWORD: string
-
-    }
+  export interface ProcessEnv {
+    readonly RESEND_API_KEY: string;
+  }
 }

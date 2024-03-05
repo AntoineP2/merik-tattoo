@@ -1,7 +1,7 @@
 import KoalaWelcomeEmail from "../../../../emails/koala-welcome";
 import { Resend } from "resend";
 
-const resend = new Resend("re_SodhCFjo_AmCwmnTBaN1DkT9ZzuXkjdvV");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request, res: Response) {
   const { userFirstname } = await req.json();
