@@ -4,10 +4,8 @@ const nextConfig = {
   images: {
     domains: ["i.postimg.cc"],
   },
-  distDir: "docs",
-  output: "export",
-  basePath: "/merik-tattoo",
-  assetPrefix: "/merik-tattoo/",
+  // distDir: "docs",
+  // output: "export",
 };
 
 module.exports = nextConfig;
