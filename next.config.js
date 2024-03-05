@@ -6,6 +6,8 @@ const nextConfig = {
   },
   distDir: "docs",
   output: "export",
+  basePath: "/merik-tattoo",
+  assetPrefix: "/merik-tattoo/",
 };
 
 module.exports = nextConfig;
