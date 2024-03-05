@@ -175,7 +175,8 @@ const FormRegular = () => {
 
             <button
               type="submit"
-              className="bg-neutral-700 w-[40%] shadow-md self-center py-2 transition ease-in-out duration-75 rounded-lg active:scale-95 hover:bg-neutral-600"
+              disabled={submitLoading}
+              className="bg-neutral-700 w-[40%] shadow-md self-center py-2 transition ease-in-out duration-75 rounded-lg active:scale-95 hover:bg-neutral-600 hover:scale-105"
             >
               <div className="flex items-center justify-center">
                 {submitLoading ? (
