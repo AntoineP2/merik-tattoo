@@ -8,6 +8,7 @@ import ListItemText from "@mui/material/ListItemText";
 import List from "@mui/material/List";
 import Image from "next/image";
 import { ContactList } from "@/utils/list/ContactList";
+import merikLogo from "../../../../public/Image-merikos.jpg";
 
 export default function FooterBottom() {
   return (
@@ -15,7 +16,7 @@ export default function FooterBottom() {
       <div className="flex md:justify-around md:flex-row flex-col pt-4 pb-4 ">
         <div className="flex justify-center items-center md:flex-none">
           <Image
-            src="/image-merikos.jpg"
+            src={merikLogo}
             alt="Le logo de Merik"
             width={200}
             height={200}
